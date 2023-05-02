@@ -1,6 +1,7 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+
 import { pokeapiUrl } from "@/constants";
 import { Pokemon } from "@/models/pokemon";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 interface Props {
   pokemon: Pokemon;

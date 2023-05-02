@@ -1,6 +1,7 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+
 import { pokeapiUrl } from "@/constants";
 import { Pokemon } from "@/models/pokemon";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 interface Props {
   pokemon: Pokemon;

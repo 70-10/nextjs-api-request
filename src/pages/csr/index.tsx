@@ -1,6 +1,7 @@
+import useSWR from "swr";
+
 import { pokeapiUrl } from "@/constants";
 import { Pokemon } from "@/models/pokemon";
-import useSWR from "swr";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
