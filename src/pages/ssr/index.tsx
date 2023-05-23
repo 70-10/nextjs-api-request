@@ -1,7 +1,8 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Image from "next/image";
 
 import { pokeapiUrl } from "@/constants";
-import { Pokemon } from "@/models/pokemon";
+import type { Pokemon } from "@/models/pokemon";
 
 interface Props {
   pokemon: Pokemon;
@@ -16,6 +17,12 @@ export default function SSR({
       <p className="my-2">
         {pokemon.id}: {pokemon.name}
       </p>
+      <Image
+        src={pokemon.sprites.front_default}
+        width={200}
+        height={200}
+        alt={pokemon.name}
+      />
     </main>
   );
 }

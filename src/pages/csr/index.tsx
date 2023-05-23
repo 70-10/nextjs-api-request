@@ -1,7 +1,8 @@
+import Image from "next/image";
 import useSWR from "swr";
 
 import { pokeapiUrl } from "@/constants";
-import { Pokemon } from "@/models/pokemon";
+import type { Pokemon } from "@/models/pokemon";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -14,9 +15,17 @@ export default function CSR() {
       {error && <p>Failed to load</p>}
       {isLoading && <p>Loading...</p>}
       {data && (
-        <p className="my-2">
-          {data.id}: {data.name}
-        </p>
+        <>
+          <p className="my-2">
+            {data.id}: {data.name}
+          </p>
+          <Image
+            src={data.sprites.front_default}
+            width={200}
+            height={200}
+            alt="Picture of the author"
+          />
+        </>
       )}
     </main>
   );
