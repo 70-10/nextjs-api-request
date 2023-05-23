@@ -1,9 +1,7 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-  "name": "Untitled Node.js project",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "Next.js API Request",
+  "image": "mcr.microsoft.com/playwright:v1.34.0-jammy",
   "customizations": {
     "vscode": {
       "settings": {
@@ -21,6 +19,5 @@
         "csstools.postcss"
       ]
     }
-  },
-  "remoteUser": "node"
+  }
 }

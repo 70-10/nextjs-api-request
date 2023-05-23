@@ -23,7 +23,7 @@ export default function CSR() {
             src={data.sprites.front_default}
             width={200}
             height={200}
-            alt="Picture of the author"
+            alt={data.name}
           />
         </>
       )}
