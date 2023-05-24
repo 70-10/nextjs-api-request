@@ -21,7 +21,7 @@ export default function SSG({
         src={pokemon.sprites.front_default}
         width={200}
         height={200}
-        alt="Picture of the author"
+        alt={pokemon.name}
       />
     </main>
   );
