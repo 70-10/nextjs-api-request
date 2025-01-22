@@ -1,26 +1,28 @@
-// See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-  "name": "Untitled Node.js project",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "name": "Next.js API Request",
+  "runArgs": ["--name=nextjs-api-request", "--rm"],
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
   "customizations": {
     "vscode": {
       "settings": {
-        "editor.codeActionsOnSave": {
-          "source.fixAll": true
+        "workbench.colorCustomizations": {
+          "editorWhitespace.foreground": "#7c7a7a"
         },
+        "editor.renderWhitespace": "boundary",
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "emmet.triggerExpansionOnTab": true
+        "editor.stickyScroll.enabled": true
       },
       "extensions": [
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "yoavbls.pretty-ts-errors",
-        "csstools.postcss"
+        "usernamehw.errorlens",
+        "formulahendry.auto-rename-tag",
+        "yoavbls.pretty-ts-errors"
       ]
     }
   },
-  "remoteUser": "node"
+  "remoteEnv": {
+    "TZ": "Asia/Tokyo"
+  }
 }
