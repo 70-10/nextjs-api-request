@@ -3,7 +3,7 @@ import Image from "next/image";
 import { pokeApiUrl } from "../constants";
 import type { Pokemon } from "../models/pokemon";
 
-export default async function SSR() {
+export default async function SSG() {
   const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
   console.log({ pokemon });
