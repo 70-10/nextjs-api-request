@@ -4,7 +4,7 @@ import { pokeApiUrl } from "../constants";
 import type { Pokemon } from "../models/pokemon";
 
 export default async function SSR() {
-  const res = await fetch(pokeApiUrl, { cache: "force-cache" });
+  const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
   console.log({ pokemon });
 

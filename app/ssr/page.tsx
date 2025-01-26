@@ -3,8 +3,10 @@ import Image from "next/image";
 import { pokeApiUrl } from "../constants";
 import type { Pokemon } from "../models/pokemon";
 
+export const dynamic = "force-dynamic";
+
 export default async function SSR() {
-  const res = await fetch(pokeApiUrl, { cache: "no-store" });
+  const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
   console.log({ pokemon });
 
