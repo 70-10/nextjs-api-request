@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import Image from "next/image";
 
 import { pokeApiUrl } from "../constants";
@@ -6,7 +7,10 @@ import type { Pokemon } from "../models/pokemon";
 export default async function SSG() {
   const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
-  console.log({ pokemon });
+  const date = res.headers.get("Date");
+  const formatDate = date
+    ? format(new Date(date), "yyyy-MM-dd HH:mm:ss")
+    : "Date not available";
 
   return (
     <main className="">
@@ -20,6 +24,9 @@ export default async function SSG() {
         height={200}
         alt={pokemon.name}
       />
+      <p className="text-sm">
+        Response Time: <span className="font-bold">{formatDate}</span>
+      </p>
     </main>
   );
 }

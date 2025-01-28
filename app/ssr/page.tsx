@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import Image from "next/image";
 
 import { pokeApiUrl } from "../constants";
@@ -8,7 +9,10 @@ export const dynamic = "force-dynamic";
 export default async function SSR() {
   const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
-  console.log({ pokemon });
+  const date = res.headers.get("Date");
+  const formatDate = date
+    ? format(new Date(date), "yyyy-MM-dd HH:mm:ss")
+    : "Date not available";
 
   return (
     <main className="">
@@ -22,6 +26,9 @@ export default async function SSR() {
         height={200}
         alt={pokemon.name}
       />
+      <p className="text-sm">
+        Response Time: <span className="font-bold">{formatDate}</span>
+      </p>
     </main>
   );
 }
