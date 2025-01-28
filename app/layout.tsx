@@ -52,6 +52,13 @@ export default function RootLayout({
             >
               SSG (Static-site Generation)
             </Link>
+            {" / "}
+            <Link
+              href="/isr"
+              className="text-blue-500 hover:text-blue-600 hover:underline"
+            >
+              ISR (Incremental Static Regeneration)
+            </Link>
           </div>
         </header>
         {children}
