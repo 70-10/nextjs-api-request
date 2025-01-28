@@ -4,7 +4,9 @@ import Image from "next/image";
 import { pokeApiUrl } from "../constants";
 import type { Pokemon } from "../models/pokemon";
 
-export default async function SSG() {
+export const revalidate = 60;
+
+export default async function ISR() {
   const res = await fetch(pokeApiUrl);
   const pokemon = (await res.json()) as Pokemon;
   const date = res.headers.get("Date");
@@ -14,7 +16,9 @@ export default async function SSG() {
 
   return (
     <main className="">
-      <h2 className="text-3xl font-bold my-5">SSG (Static-site Generation)</h2>
+      <h2 className="text-3xl font-bold my-5">
+        ISR (Incremental Static Regeneration)
+      </h2>
       <p className="my-2">
         {pokemon.id}: {pokemon.name}
       </p>
